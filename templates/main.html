@@ -4,17 +4,28 @@
 {% block title %} Main {% endblock %}
 
 {% block content %}
-    <form action="" method="post">
-        {{ form.csrf_token }}
-        {% for field in form if field.name != 'csrf_token' and field.name != 'submit' %}
-            <p>{{ field.label }}</p>
-            <p>
-                {{ field }}
-                {% for error in field.erros %}
-                    {{ error }}
-                {% endfor %}
-            </p>
-        {% endfor %}
-        {{ form.submit }}
-    </form>
+    <div class="container">
+      <div class="form__wrapper">
+        <form action="" method="post">
+          {{ form.csrf_token }}
+          <div class="field">
+            {{ form.username.label }}
+            {{ form.username(placeholder='Full Name') }}
+            {% for error in form.erros %}
+                {{ error }}
+            {% endfor %}
+          </div>
+          <div class="field">
+            {{ form.difficulty_level.label }}
+            {{ form.difficulty_level(class='radio-buttons') }}
+            {% for error in form.erros %}
+                {{ error }}
+            {% endfor %}
+          </div>
+          <div class="submit">
+              {{ form.submit(class='main-submit') }}
+          </div>
+        </form>
+      </div>
+    </div>
 {% endblock %}
