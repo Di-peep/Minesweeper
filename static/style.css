@@ -1,0 +1,133 @@
+
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-2210775-jpeg.jpg')
+    center center no-repeat;
+  background-size: cover;
+  letter-spacing: 2px;
+}
+
+.form__wrapper {
+  width: 500px;
+  padding: 100px 0;
+  margin: 0 auto;
+  background: #f8f4e5;
+  font-family: 'Fjalla One', serif;
+}
+
+form > div + div {
+  margin-top: 35px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.field label {
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+.field input {
+  background-color: rgb(229 231 235);
+  border: none;
+  width: 220px;
+  padding: 10px;
+  font-family: 'Fjalla One', serif;
+  letter-spacing: 2px;
+}
+
+.field input:focus {
+  outline: 3px solid #ffa580;
+}
+
+.main-submit {
+  display: block;
+  margin: 0 auto;
+  line-height: 28pt;
+  font-size: 24px;
+  padding: 2px 34px;
+  background: #ffa580;
+  letter-spacing: 2px;
+  transition: 0.2s all ease-in-out;
+  outline: none;
+  border: 1px solid black;
+  box-shadow: 3px 3px 1px 1px #95a4ff, 3px 3px 1px 2px black;
+}
+
+.main-submit:hover {
+  background: black;
+  color: white;
+  border: 1px solid black;
+}
+
+.radio-buttons {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  height: 40px;
+  padding: 4px;
+  background-color: rgb(229 231 235);
+  font-weight: 600;
+  color: rgb(37 99 235);
+  margin: 0;
+  width: 220px;
+}
+
+.radio-buttons li {
+  display: flex;
+  position: relative;
+  flex-grow: 1;
+}
+
+.radio-buttons label {
+  padding: 4px 8px;
+  font-size: 14px;
+  line-height: 24px;
+  color: rgb(75 85 99);
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.radio-buttons input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.radio-buttons label:hover {
+  color: rgb(31 41 55);
+  background-color: #95a4ff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+.radio-buttons label {
+  cursor: pointer;
+}
+.radio-buttons li input:checked + label {
+  background-color: #ffa580;
+}
+.radio-buttons li input:not(:checked) + label {
+  --bg-opacity: 0;
+  box-shadow: none;
+}
