@@ -7,5 +7,6 @@ class StartForm(FlaskForm):
     username = StringField('Enter your Nickname', validators=[Length(min=5, max=32), InputRequired()])
     # password = PasswordField('Пароль', validators=[Length(min=5, max=24), InputRequired()])
     # game_mode = RadioField()
-    difficulty_level = RadioField('Choose difficulty level', choices=['easy', 'medium', 'hard'])
+    difficulty_level = RadioField('Choose difficulty level',
+                                  choices=['easy', 'medium', 'hard'], validators=[InputRequired()])
     submit = SubmitField('Start')
