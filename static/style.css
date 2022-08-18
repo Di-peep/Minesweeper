@@ -1,8 +1,8 @@
-
 @import url('https://fonts.googleapis.com/css?family=Fjalla+One&display=swap');
 
 * {
   box-sizing: border-box;
+  font-family: 'Fjalla One', serif;
 }
 
 body {
@@ -13,6 +13,7 @@ body {
   height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
   background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-2210775-jpeg.jpg')
     center center no-repeat;
   background-size: cover;
@@ -130,4 +131,41 @@ form > div + div {
 .radio-buttons li input:not(:checked) + label {
   --bg-opacity: 0;
   box-shadow: none;
+}
+
+/* Mine field styles*/
+
+.minefield-table {
+  width: 470px;
+  height: 470px;
+  table-layout: fixed;
+}
+
+.minefield-table td {
+  width: 50px;
+  height: 50px;
+  max-height: 100%;
+  background-color: #f8f4e5;
+  padding: 3px;
+}
+
+.cell {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(150 166 251);
+  color: rgb(150 166 251);
+  border: none;
+  cursor: pointer;
+}
+
+.cell:hover {
+  background-color: #ffa580;
+  color: #ffa580;
+}
+
+.cell-opened {
+  margin: 0;
+  text-align: center;
+  color: rgb(75 85 99);
+  font-size: 25px;
 }
