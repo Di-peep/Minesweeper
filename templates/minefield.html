@@ -5,32 +5,37 @@
 
 {% block content %}
     <div class="container">
-    <form method="post">
-        <table class="minefield">
-            {% for row in range(obj.row_counter) %}
-                <tr>
-                    {% for column in range(obj.column_counter) %}
-                        {% if obj.cells[row][column].state == 'on_border' %}
-                            <td>
-                                <input class="on_border" type="submit" name="sub_btn" value="{{row}}:{{column}}" />
-                            </td>
-                        {% elif obj.cells[row][column].state == 'closed' %}
-                            <td>
-                                <input class="closed" type="submit" name="sub_btn" value="{{row}}:{{column}}" />
-                            </td>
-                        {% elif obj.cells[row][column].mined %}
-                            <td>
-                                <p class="mined">X</p>
-                            </td>
-                        {% else %}
-                            <td>
-                                <p class="opened">{{ obj.cells[row][column].counter }}</p>
-                            </td>
-                        {% endif %}
-                    {% endfor %}
-                </tr>
-            {% endfor %}
-        </table>
-    </form>
-    </div>>
+        <form method="post">
+            <table class="minefield">
+                {% for row in range(obj.row_counter) %}
+                    <tr>
+                        {% for column in range(obj.column_counter) %}
+                            {% if obj.cells[row][column].state == 'on_border' %}
+                                <td>
+                                    <input class="on_border" type="submit" name="sub_btn" value="{{row}}:{{column}}" />
+                                </td>
+                            {% elif obj.cells[row][column].state == 'closed' %}
+                                <td>
+                                    <input class="closed" type="submit" name="sub_btn" value="{{row}}:{{column}}" />
+                                </td>
+                            {% elif obj.cells[row][column].mined %}
+                                <td>
+                                    <p class="mined">X</p>
+                                </td>
+                            {% else %}
+                                <td>
+                                    <p class="opened">{{ obj.cells[row][column].counter }}</p>
+                                </td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+        </form>
+        <div>
+            {% if obj.game_over %}
+                <a href = "/"><button type='submit'>Go Home</button></a>
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}
