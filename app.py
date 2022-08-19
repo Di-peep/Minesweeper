@@ -19,7 +19,7 @@ def main():
         session['dif_mode'] = form.difficulty_level.data
         session['id_game'] = form.username.data + str(randint(1, 100))
         barman = Barman()
-        barman.add_game(session['id_game'])
+        barman.add_game(session['id_game'], session['dif_mode'])
         return redirect(url_for('minefield'))
 
     return render_template('main.html', form=form)
