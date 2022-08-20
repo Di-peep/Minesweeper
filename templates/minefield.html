@@ -35,7 +35,11 @@
         {% if obj.game_over %}
             <div class="popup">
                 <div class="popup-info">
-                    <p class="popup-text">"Congratulations! You win this game. Go to ATB and by some beer. Ten push-ups right now!!!"</p>
+                    {% if obj.is_win %}
+                        <p class="popup-text">"Congratulations!!!<br>You win this game."</p>
+                    {% else %}
+                        <p class="popup-text">"Uuups!!!<br>You lose this game."</p>
+                    {% endif %}
                     <a class="home-button" href = "/">Go Home</a>
                 </div>
             </div>
