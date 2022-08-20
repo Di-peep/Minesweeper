@@ -5,26 +5,26 @@
 
 {% block content %}
     <div class="container">
-        <form method="post">
-            <table class="minefield">
+        <form class="minefield-form" method="post">
+            <table class="minefield-table">
                 {% for row in range(obj.row_counter) %}
                     <tr>
                         {% for column in range(obj.column_counter) %}
                             {% if obj.cells[row][column].state == 'on_border' %}
                                 <td>
-                                    <input class="on_border" type="submit" name="sub_btn" value="{{row}}:{{column}}" />
+                                    <input class="cell on_border" type="submit" name="sub_btn" value="{{row}}:{{column}}" />
                                 </td>
                             {% elif obj.cells[row][column].state == 'closed' %}
                                 <td>
-                                    <input class="closed" type="submit" name="sub_btn" value="{{row}}:{{column}}" />
+                                    <input class="cell closed" type="submit" name="sub_btn" value="{{row}}:{{column}}" />
                                 </td>
                             {% elif obj.cells[row][column].mined %}
                                 <td>
-                                    <p class="mined">X</p>
+                                    <img class="bomb-icon" src="https://www.svgrepo.com/show/192102/bomb.svg" alt="bomb"/>
                                 </td>
                             {% else %}
                                 <td>
-                                    <p class="opened">{{ obj.cells[row][column].counter }}</p>
+                                    <p class="cell-opened opened">{{ obj.cells[row][column].counter }}</p>
                                 </td>
                             {% endif %}
                         {% endfor %}
@@ -32,10 +32,13 @@
                 {% endfor %}
             </table>
         </form>
-        <div>
-            {% if obj.game_over %}
-                <a href = "/"><button type='submit'>Go Home</button></a>
-            {% endif %}
-        </div>
+        {% if obj.game_over %}
+            <div class="popup">
+                <div class="popup-info">
+                    <p class="popup-text">"Congratulations! You win this game. Go to ATB and by some beer. Ten push-ups right now!!!"</p>
+                    <a class="home-button" href = "/">Go Home</a>
+                </div>
+            </div>
+        {% endif %} 
     </div>
 {% endblock %}

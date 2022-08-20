@@ -1,8 +1,8 @@
-
 @import url('https://fonts.googleapis.com/css?family=Fjalla+One&display=swap');
 
 * {
   box-sizing: border-box;
+  font-family: 'Fjalla One', serif;
 }
 
 body {
@@ -13,10 +13,12 @@ body {
   height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
   background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-2210775-jpeg.jpg')
     center center no-repeat;
   background-size: cover;
   letter-spacing: 2px;
+  position: relative;
 }
 
 .form__wrapper {
@@ -55,7 +57,8 @@ form > div + div {
   outline: 3px solid #ffa580;
 }
 
-.main-submit {
+.main-submit,
+.home-button {
   display: block;
   margin: 0 auto;
   line-height: 28pt;
@@ -69,7 +72,8 @@ form > div + div {
   box-shadow: 3px 3px 1px 1px #95a4ff, 3px 3px 1px 2px black;
 }
 
-.main-submit:hover {
+.main-submit:hover,
+.home-button:hover {
   background: black;
   color: white;
   border: 1px solid black;
@@ -130,4 +134,92 @@ form > div + div {
 .radio-buttons li input:not(:checked) + label {
   --bg-opacity: 0;
   box-shadow: none;
+}
+
+/* Mine field styles*/
+
+.minefield-table {
+  width: 470px;
+  height: 470px;
+  table-layout: fixed;
+}
+
+.minefield-table td {
+  width: 50px;
+  height: 50px;
+  max-height: 100%;
+  background-color: #f8f4e5;
+  padding: 3px;
+  text-align: center;
+  position: relative;
+}
+
+.cell {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(150 166 251);
+  color: rgb(150 166 251);
+  border: none;
+  cursor: pointer;
+}
+
+.cell:hover {
+  background-color: #ffa580;
+  color: #ffa580;
+}
+
+.cell-opened {
+  margin: 0;
+  text-align: center;
+  color: rgb(75 85 99);
+  font-size: 25px;
+}
+
+.bomb-icon {
+  width: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -20px;
+}
+
+.popup {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-info {
+  width: 400px;
+  height: 200px;
+  background-color: rgba(248, 244, 229, 0.8);
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  animation: scale 1s;
+}
+
+.home-button,
+.home-button:active {
+  font-size: 18px;
+  text-decoration: none;
+  color: black;
+  width: 40%;
+  padding: 0 20px;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(0, 0);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
 }
