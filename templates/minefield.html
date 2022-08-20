@@ -24,7 +24,7 @@
                                 </td>
                             {% else %}
                                 <td>
-                                    <p class="cell-opened opened">{{ obj.cells[row][column].counter }}</p>
+                                    <p class="cell-opened opened">{{ obj.cells[row][column].counter or '' }}</p>
                                 </td>
                             {% endif %}
                         {% endfor %}
