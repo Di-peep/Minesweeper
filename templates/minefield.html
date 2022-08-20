@@ -20,7 +20,7 @@
                                 </td>
                             {% elif obj.cells[row][column].mined %}
                                 <td>
-                                    <p class="cell-opened mined">X</p>
+                                    <img class="bomb-icon" src="https://www.svgrepo.com/show/192102/bomb.svg" alt="bomb"/>
                                 </td>
                             {% else %}
                                 <td>
@@ -32,10 +32,13 @@
                 {% endfor %}
             </table>
         </form>
-        <div>
-            {% if obj.game_over %}
-                <a href = "/"><button type='submit'>Go Home</button></a>
-            {% endif %}
-        </div>
+        {% if obj.game_over %}
+            <div class="popup">
+                <div class="popup-info">
+                    <p class="popup-text">"Congratulations! You win this game. Go to ATB and by some beer. Ten push-ups right now!!!"</p>
+                    <a class="home-button" href = "/">Go Home</a>
+                </div>
+            </div>
+        {% endif %} 
     </div>
 {% endblock %}
